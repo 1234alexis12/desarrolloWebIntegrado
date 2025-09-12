@@ -48,6 +48,9 @@ public class DashboardController {
         model.addAttribute("clientesRecientes", clienteRepository.findTop5ByOrderByFechaRegistroDesc());
         
         // Entradas Recientes
+        // Entradas Recientes
+        // Entradas Recientes
+        // Entradas Recientes
         model.addAttribute("entradasRecientes", entradaRepository.findTop5ByOrderByFechaDesc());
         
         // Productos con Stock Bajo
