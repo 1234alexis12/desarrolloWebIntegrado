@@ -1,0 +1,2 @@
+este es para un posible nuevo cambio para agregar mas funcionalidades para el sistema fitness
+ademas de otras pestañas con los logs
