@@ -28,6 +28,7 @@ public class InventarioController {
     }
 
     // Agregar nuevo producto
+ // Agregar nuevo producto
     @PostMapping("/agregar")
     public String agregarProducto(@ModelAttribute Producto producto) {
         if (producto.getFechaIngreso() == null) {
