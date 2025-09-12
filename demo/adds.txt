@@ -1,2 +1,2 @@
 este es para un posible nuevo cambio para agregar mas funcionalidades para el sistema fitness
-ademas de otras pestañas con los logs
+ademas de otras pestañas con los logs y demas para que funcionene mejor los logs
