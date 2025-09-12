@@ -49,8 +49,7 @@ public class DashboardController {
         
         // Entradas Recientes
         // Entradas Recientes
-        // Entradas Recientes
-        // Entradas Recientes
+
         model.addAttribute("entradasRecientes", entradaRepository.findTop5ByOrderByFechaDesc());
         
         // Productos con Stock Bajo
