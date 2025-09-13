@@ -438,6 +438,77 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
   
   <script>
+  // Reloj analógico
+  const canvas = document.getElementById("relojCanvas");
+  if (canvas) {
+    const ctxReloj = canvas.getContext("2d");
+    const radio = canvas.height / 2;
+    ctxReloj.translate(radio, radio);
+    setInterval(dibujarReloj, 1000);
 
+    function dibujarReloj() {
+      dibujarCaratula(ctxReloj, radio);
+      dibujarNumeros(ctxReloj, radio);
+      dibujarHora(ctxReloj, radio);
+    }
+
+    function dibujarCaratula(ctx, r) {
+      ctx.beginPath();
+      ctx.arc(0, 0, r * 0.95, 0, 2 * Math.PI);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      ctx.strokeStyle = '#4e73df';
+      ctx.lineWidth = r * 0.05;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, r * 0.05, 0, 2 * Math.PI);
+      ctx.fillStyle = '#4e73df';
+      ctx.fill();
+    }
+
+    function dibujarNumeros(ctx, r) {
+      ctx.font = r * 0.15 + "px Arial";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      for (let num = 1; num <= 12; num++) {
+        const ang = num * Math.PI / 6;
+        ctx.rotate(ang);
+        ctx.translate(0, -r * 0.85);
+        ctx.rotate(-ang);
+        ctx.fillText(num.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, r * 0.85);
+        ctx.rotate(-ang);
+      }
+    }
+
+    function dibujarHora(ctx, r) {
+      const ahora = new Date();
+      let hora = ahora.getHours();
+      let minuto = ahora.getMinutes();
+      let segundo = ahora.getSeconds();
+      hora = hora % 12;
+      hora = (hora * Math.PI / 6) +
+             (minuto * Math.PI / (6 * 60)) +
+             (segundo * Math.PI / (360 * 60));
+      dibujarManecilla(ctx, hora, r * 0.5, r * 0.07);
+      minuto = (minuto * Math.PI / 30) + (segundo * Math.PI / (30 * 60));
+      dibujarManecilla(ctx, minuto, r * 0.75, r * 0.07);
+      segundo = (segundo * Math.PI / 30);
+      dibujarManecilla(ctx, segundo, r * 0.85, r * 0.02, "#e74a3b");
+    }
+
+    function dibujarManecilla(ctx, pos, length, width, color = "#333") {
+      ctx.beginPath();
+      ctx.lineWidth = width;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = color;
+      ctx.moveTo(0, 0);
+      ctx.rotate(pos);
+      ctx.lineTo(0, -length);
+      ctx.stroke();
+      ctx.rotate(-pos);
+    }
+  }
   </script>
 </body>
