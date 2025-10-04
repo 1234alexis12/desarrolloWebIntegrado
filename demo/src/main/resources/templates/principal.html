@@ -114,6 +114,97 @@
       border-radius: 6px;
       padding: 15px;
     }
+    
+    /* Estilos mejorados para la sección de Visión General */
+    .vision-section {
+      background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .vision-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .vision-header {
+      background: linear-gradient(45deg, #4e73df, #224abe);
+      color: white;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: rgba(255,255,255,0.1);
+      transform: rotate(30deg);
+    }
+    .vision-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .vision-content {
+      padding: 2rem;
+    }
+    .vision-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+    }
+    .vision-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .vision-card-header {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+    }
+    .vision-card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.5rem;
+    }
+    .vision-card-body {
+      padding: 1.25rem;
+    }
+    .vision-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .vision-stat {
+      text-align: center;
+    }
+    .vision-stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #4e73df;
+    }
+    .vision-stat-label {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
   </style>
 </head>
 <body class="d-flex flex-column">
@@ -316,7 +407,7 @@
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
           </div>
           
-                    <!-- Accesos rápidos -->
+          <!-- Accesos rápidos -->
           <div class="row mb-4">
             <div class="col-12">
               <div class="card shadow mb-4">
@@ -375,39 +466,143 @@
             </div>
           </div>
           
-          <!-- Resumen Ejecutivo -->
+          <!-- Resumen Ejecutivo - MEJORADO -->
           <div class="row mb-4">
             <div class="col-12">
-              <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white">
-                  <h6 class="m-0 font-weight-bold text-primary">Home Fitness - Visión General</h6>
-                </div>
-                <div class="card-body">
+              <div class="vision-section shadow">
+                <div class="vision-header">
                   <div class="row align-items-center">
-                    <div class="col-md-3 text-center mb-4 mb-md-0">
-                      <img src="/imagenes/logo.png" alt="Logo Home Fitness" class="img-fluid" style="max-height: 150px;">
+                    <div class="col-md-2 text-center">
+                      <img src="/imagenes/logo.png" alt="Logo Home Fitness" class="vision-logo">
                     </div>
-                    <div class="col-md-9">
-                      <div class="mb-3">
-                        <h5 class="text-primary">Home Fitness</h5>
-                        <p class="mb-0">Solución integral en acondicionamiento físico y bienestar, combinando servicios de gimnasio con venta de productos deportivos.</p>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="d-flex mb-3">
-                            <i class="fas fa-eye me-2 text-primary mt-1"></i>
-                            <div>
-                              <h6 class="mb-1">Visión</h6>
-                              <p class="small mb-0">Ser el gimnasio más innovador y completo de la ciudad, promoviendo salud mediante tecnología y expansión.</p>
+                    <div class="col-md-10">
+                      <h2 class="mb-2">Home Fitness</h2>
+                      <p class="mb-0">Solución integral en acondicionamiento físico y bienestar, combinando servicios de gimnasio con venta de productos deportivos.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="vision-content">
+                  <div class="row">
+                    <!-- Tarjeta de Visión -->
+                    <div class="col-md-6 mb-4">
+                      <div class="vision-card">
+                        <div class="vision-card-header">
+                          <div class="vision-card-icon bg-primary text-white">
+                            <i class="fas fa-eye"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0">Visión</h5>
+                            <p class="text-muted mb-0">Nuestro propósito a futuro</p>
+                          </div>
+                        </div>
+                        <div class="vision-card-body">
+                          <p>Ser el gimnasio más innovador y completo de la ciudad, promoviendo salud mediante tecnología y expansión.</p>
+                          <div class="vision-stats">
+                            <div class="vision-stat">
+                              <div class="vision-stat-value">2025</div>
+                              <div class="vision-stat-label">Expansión</div>
+                            </div>
+                            <div class="vision-stat">
+                              <div class="vision-stat-value">3</div>
+                              <div class="vision-stat-label">Nuevas sedes</div>
+                            </div>
+                            <div class="vision-stat">
+                              <div class="vision-stat-value">100%</div>
+                              <div class="vision-stat-label">Digital</div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="d-flex mb-3">
-                            <i class="fas fa-bullseye me-2 text-primary mt-1"></i>
-                            <div>
-                              <h6 class="mb-1">Misión</h6>
-                              <p class="small mb-0">Brindar entrenamiento físico con enfoque personalizado, tecnología y servicios adaptados al cliente.</p>
+                      </div>
+                    </div>
+                    
+                    <!-- Tarjeta de Misión -->
+                    <div class="col-md-6 mb-4">
+                      <div class="vision-card">
+                        <div class="vision-card-header">
+                          <div class="vision-card-icon bg-success text-white">
+                            <i class="fas fa-bullseye"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0">Misión</h5>
+                            <p class="text-muted mb-0">Nuestro compromiso diario</p>
+                          </div>
+                        </div>
+                        <div class="vision-card-body">
+                          <p>Brindar entrenamiento físico con enfoque personalizado, tecnología y servicios adaptados al cliente.</p>
+                          <div class="vision-stats">
+                            <div class="vision-stat">
+                              <div class="vision-stat-value">500+</div>
+                              <div class="vision-stat-label">Clientes</div>
+                            </div>
+                            <div class="vision-stat">
+                              <div class="vision-stat-value">15</div>
+                              <div class="vision-stat-label">Entrenadores</div>
+                            </div>
+                            <div class="vision-stat">
+                              <div class="vision-stat-value">24/7</div>
+                              <div class="vision-stat-label">Disponibilidad</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Tarjeta de Valores -->
+                    <div class="col-md-6 mb-4">
+                      <div class="vision-card">
+                        <div class="vision-card-header">
+                          <div class="vision-card-icon bg-info text-white">
+                            <i class="fas fa-heart"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0">Valores</h5>
+                            <p class="text-muted mb-0">Principios que nos guían</p>
+                          </div>
+                        </div>
+                        <div class="vision-card-body">
+                          <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Compromiso con la salud</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Innovación constante</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Atención personalizada</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Calidad en servicios</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Responsabilidad social</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Tarjeta de Servicios -->
+                    <div class="col-md-6 mb-4">
+                      <div class="vision-card">
+                        <div class="vision-card-header">
+                          <div class="vision-card-icon bg-warning text-white">
+                            <i class="fas fa-dumbbell"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0">Servicios</h5>
+                            <p class="text-muted mb-0">Lo que ofrecemos</p>
+                          </div>
+                        </div>
+                        <div class="vision-card-body">
+                          <div class="row">
+                            <div class="col-6 mb-2">
+                              <i class="fas fa-running text-primary me-2"></i> Entrenamiento
+                            </div>
+                            <div class="col-6 mb-2">
+                              <i class="fas fa-apple-alt text-success me-2"></i> Nutrición
+                            </div>
+                            <div class="col-6 mb-2">
+                              <i class="fas fa-shopping-bag text-info me-2"></i> Suplementos
+                            </div>
+                            <div class="col-6 mb-2">
+                              <i class="fas fa-id-card-alt text-warning me-2"></i> Membresías
+                            </div>
+                            <div class="col-6 mb-2">
+                              <i class="fas fa-user-md text-danger me-2"></i> Asesorías
+                            </div>
+                            <div class="col-6 mb-2">
+                              <i class="fas fa-chart-line text-secondary me-2"></i> Seguimiento
                             </div>
                           </div>
                         </div>
@@ -418,8 +613,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Modelo de Negocio y Planes -->
 
           <!-- Fila inferior - Reloj -->
           <div class="row">
